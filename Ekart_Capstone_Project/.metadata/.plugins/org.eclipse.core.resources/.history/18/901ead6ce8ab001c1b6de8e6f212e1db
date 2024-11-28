@@ -1,0 +1,16 @@
+server:
+  port: 3335
+spring: 
+  application:
+    name: CustomerMs
+  cloud:
+    consul:
+      discovery:
+        hostname: localhost
+      config:
+        enable: true
+        prefix: config
+        defaultContext: application
+        profileSeperator: '::'
+        format: YAML
+           

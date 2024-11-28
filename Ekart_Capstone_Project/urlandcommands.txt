@@ -1,0 +1,108 @@
+1. View all products
+Get request :
+http://localhost:3334/Ekart/product-api/products
+
+2. View Specific product
+
+Get request :
+http://localhost:3334/Ekart/product-api/product/1009
+
+
+3. Add products to Customer Cart
+
+Post request :
+http://localhost:3336/Ekart/customer-api/customercarts/add-product
+Request Body :
+{
+"customerEmailId":"harry@infosys.com",
+"cartProducts":
+
+[
+    {  "product":
+    {
+        "productId": 1000
+    },
+        "quantity": 1
+    },
+     {  "product":
+    {
+        "productId": 1009
+    },
+        "quantity": 1
+    }
+]
+}
+
+
+Mysql Command to check :
+
+use `ekart_customercart`;
+SELECT * FROM EK_CUSTOMER_CART;
+SELECT * FROM EK_CART_PRODUCT;
+
+
+repeat   with steve@infosys.com as mail id
+
+4. Delete Product from cart .
+
+Delete
+http://localhost:3335/Ekart/customercart-api/customer/harry@infosys.com/product/1000
+
+5. Update Quantity of Product from cart
+
+Put 
+http://localhost:3335/Ekart/customercart-api/customer/harry@infosys.com/product/1000
+
+RequestBody : 129
+
+
+6. To check cart of customer 
+
+http://localhost:3335/Ekart/customercart-api/customer/harry@infosys.com/products
+
+7.Order products from cart
+post 
+ 
+http://localhost:3336/Ekart/customerorder-api/place-order
+
+RequestBody :
+
+{
+
+"customerEmailId": "harry@infosys.com",
+"dateOfDelivery" :  "2022-01-25T21:34:55",
+"paymentThrough" : "DEBIT_CARD"
+
+}
+use `ekart_customercart`;
+SELECT * FROM EK_CUSTOMER_CART;
+SELECT * FROM EK_CART_PRODUCT;
+use `ekart_customer`;
+SELECT * FROM EK_ORDER;
+SELECT * FROM EK_ORDERED_PRODUCT;
+
+8. 
+To get all orders details
+
+http://localhost:3336/Ekart/customerorder-api/customer/harry@infosys.com/orders
+To get card Available of patticular card type:
+Get
+http://localhost:3337/Ekart/payment-api/customer/harry@infosys.com/card-type/DEBIT_CARD
+9.
+To pay for order
+post
+http://localhost:3337/Ekart/payment-api/customer/harry@infosys.com/pay-order
+RequestBody : 
+{ "order":{
+ "orderId" :   90011
+},"card":{
+  "cardId" : 2008 ,
+   "cvv" : 929
+}
+}
+use `ekart_payment`;
+SELECT * FROM EK_TRANSACTION;
+  
+SELECT * FROM EK_ORDERED_PRODUCT;
+Deja woo check for product
+http://localhost:3334/Ekart/customerProduct-api/products

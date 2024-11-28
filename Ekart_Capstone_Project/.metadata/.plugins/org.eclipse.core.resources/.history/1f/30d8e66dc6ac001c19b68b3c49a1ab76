@@ -1,0 +1,22 @@
+spring: 
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+ #Add the routes here  
+      routes:
+        - id: ProductMS
+          uri: lb://ProductMS
+          predicates:
+            - Path=/Ekart/product-api/products**
+            - Path=/Ekart/product-api/product/*
+        - id: CartMS
+          uri: lb://CartMS
+          predicates:
+            - Path=/Ekart/customer/*/products
+            - Path=/Ekart/product-api/product/*
+          
+            
+         
+      

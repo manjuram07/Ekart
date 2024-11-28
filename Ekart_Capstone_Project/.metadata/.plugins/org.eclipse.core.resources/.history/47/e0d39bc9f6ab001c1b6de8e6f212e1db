@@ -1,0 +1,9 @@
+server:
+ port: 4000
+
+spring:
+  application:
+    name: GatewayMS
+ #Make this Gateway a part of consul service registry
+
+      
