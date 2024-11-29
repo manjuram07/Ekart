@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: Priyanka
+Build-Jdk: 17.0.2
+Implementation-Title: ekart-gateway
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.infy.ekart.gateway
+Implementation-URL: https://spring.io/projects/spring-boot/ekart-gateway
+Created-By: Maven Integration for Eclipse
+
