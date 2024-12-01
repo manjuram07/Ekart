@@ -1,0 +1,17 @@
+#Configure the below given properties in CartMS.yml of consul server
+server.port=3335
+//spring.datasource.url=jdbc:mysql://localhost:3306/EKART_CUSTOMERCART?useSSL=false
+spring.datasource.url=jdbc:mysql://localhost:3306/EKART_CUSTOMER?useSSL=false
+
+#Configure the below common properties in application.yml of consul server
+spring.datasource.username=root
+spring.datasource.password=1234
+server.servlet.context-path=/Ekart
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+server.error.whitelabel.enabled=false
+logging.level.org.hibernate.type=info
+spring.jpa.properties.hibernate.show_sql: true
+spring.cloud.consul.discovery.health-check-url = http://localhost:${server.port}${server.servlet.context-path}/actuator
+
+

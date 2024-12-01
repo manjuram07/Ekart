@@ -1,0 +1,11 @@
+server:
+  port: 4000
+  
+spring:
+  application:
+    name: GatewayMS
+  cloud:
+    consul:
+      host: localhost
+      discovery.helth-check-url: http://localhost:${server.port}${server.servlet.context-path}/actuator
+      

@@ -1,0 +1,25 @@
+spring: 
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+ #Add the routes here  
+           
+      routes:
+        - id: PlanMS
+          uri: lb://PlanMS
+          predicates:
+            - Path=/plans/**
+        - id: FriendFamilyMS
+          uri: lb://FriendFamilyMS
+          predicates:
+            - Path=/customers/*/friends
+        - id: CustomerMS
+          uri: lb://CustomerMS
+          predicates:
+            - Path=/customers/**   
+       
+            
+         
+      
